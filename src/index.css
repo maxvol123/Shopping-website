@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.header_main{
+    background-color: #F4F6F5;
+}
+.white{
+    -ms-transform: rotate(-5deg); /* IE 9 */
+  -webkit-transform: rotate(-5deg); /* Safari */
+  transform: rotate(-5deg);
+}
+.yellow{
+    background-color: #EBD96B;
+}
