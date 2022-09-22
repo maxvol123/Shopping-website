@@ -12,3 +12,20 @@
 .yellow{
     background-color: #EBD96B;
 }
+.arrow:hover {
+    animation: arrow 1s linear infinite;
+}
+@keyframes arrow{
+    0% {
+        left:0;
+    }
+    50% {
+        left:10px;
+    }
+    100% {
+        left:0;
+    }
+}
+.foto{
+    height: 500px;
+}
