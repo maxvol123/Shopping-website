@@ -10,6 +10,8 @@ import Hoodies from "./img/Hoodies.png"
 import Arrow from "./img/Arrow.png"
 import Coats from "./img/Coats.png"
 import Tees from "./img/Tees.png"
+import One from "./img/One.png"
+import Two from "./img/Two.png"
 function App() {
   return (
     <div className="App">
@@ -35,7 +37,7 @@ function App() {
           </div>
           <img className="h-96" src={Header_foto} alt="" />
         </main>
-        <footer className="yellow flex justify-between py-5 px-10 mt-16">
+        <footer className="yellow flex justify-between py-5 px-10 mt-16 scroll">
         <img src={HM} alt="" />
         <img src={OBEY} alt="" />
         <img src={Shopify} alt="" />
@@ -46,8 +48,8 @@ function App() {
       </header>
       <main className="min-h-screen">
         <h1 className="font-bold text-4xl ml-5">NEW ARRIVALS</h1>
-        <div className="flex mx-5 mt-3 justify-between">
-          <div className="">
+        <div className="flex mx-5 mt-3 justify-between flex-wrap">
+          <div className="mb-7">
             <img className="foto" src={Hoodies} alt="" />
             <div className="flex flex-col">
             <div className="">Hoodies & Sweetshirt</div>
@@ -55,7 +57,7 @@ function App() {
             </div>
             <img className="arrow h-4 ml-80 -mt-9" src={Arrow} alt="" />
            </div>
-           <div className="">
+           <div className="mb-7">
             <img className="foto" src={Coats} alt="" />
             <div className="flex flex-col">
             <div className="">Coats & Parkas</div>
@@ -63,7 +65,7 @@ function App() {
             </div>
             <img className="arrow h-4 ml-80 -mt-9" src={Arrow} alt="" />
            </div>
-           <div className="">
+           <div className="mb-7">
             <img className="foto" src={Tees} alt="" />
             <div className="flex flex-col">
             <div className="">Tees & T-Shirt</div>
@@ -73,6 +75,38 @@ function App() {
            </div>
         </div>
       </main>
+      <main className="yellow text-center items-center pt-5 pb-10">
+      <div className="font-bold white bg-white mb-2 px-3 w-64 text-6xl asd">PAYDAY</div>
+      <div className="font-bold mb-5 px-3 mt-5 text-6xl">SALE NOW</div>
+      <div className="text-xl">Spend minimal $100 get 30% off voucher code for your next purchase</div>
+      <div className="font-bold px-3 mt-5 text-xl">1 June - 10 June 2021</div>
+      <div className="text-xl mb-3">*Terms & Conditions apply</div>
+      <div className="text-xl bg-black px-2 py-1 text-white text-center w-32 asd rounded cursor-pointer">Shop Now</div>
+      </main>
+
+      <main className="min-h-screen">
+        <h1 className="font-bold text-4xl ml-5">Young’s Favourite</h1>
+        <div className="flex mx-5 mt-3 justify-around flex-wrap">
+          <div className="mb-7">
+            <img className="foto" src={Two} alt="" />
+            <div className="flex flex-col">
+            <div className="">Trending on instagram</div>
+            <div className="">Explore Now!</div>
+            </div>
+            <img className="arrow h-4 ml-80 -mt-9" src={Arrow} alt="" />
+           </div>
+           <div className="mb-7">
+            <img className="foto" src={One} alt="" />
+            <div className="flex flex-col">
+            <div className="">All Under $40</div>
+            <div className="">Explore Now!</div>
+            </div>
+            <img className="arrow h-4 ml-80 -mt-9" src={Arrow} alt="" />
+           </div>
+           </div>
+      </main>
+
+
     </div>
   );
 }

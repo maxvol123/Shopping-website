@@ -29,3 +29,9 @@
 .foto{
     height: 500px;
 }
+.scroll{
+    overflow-x: auto;
+}
+.asd{
+    margin: 0 auto;
+}
