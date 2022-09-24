@@ -12,9 +12,19 @@ import Coats from "./img/Coats.png"
 import Tees from "./img/Tees.png"
 import One from "./img/One.png"
 import Two from "./img/Two.png"
+import Phone from "./img/Phone.png"
+import Apple from "./img/Apple.png"
+import Google from "./img/Google.png"
+import { useState } from "react"
+import { Modal } from "./components/Modal"
+
 function App() {
+  const [signup,setSignup]=useState(false)
   return (
     <div className="App">
+      {signup&&<Modal title="SIGN UP">
+
+      </Modal>}
       <header className="min-h-screen">
         <nav className="flex justify-between p-2">
           <div className=""><img src={Logo} alt="" /></div>
@@ -23,7 +33,7 @@ function App() {
           <div className="">FASHION</div>
           <div className="">FAVOURITE</div>
           <div className="">LIFESTYLE</div>
-          <button className="bg-black px-2 py-1 rounded text-white max-h-8">SIGN UP</button>
+          <button className="bg-black px-2 py-1 rounded text-white max-h-8" onClick={()=>setSignup(true)}>SIGN UP</button>
           </div>
         </nav>
         <main className="header_main flex m-5 rounded-3xl justify-between p-3 pb-0 pl-10 pr-40">
@@ -37,7 +47,7 @@ function App() {
           </div>
           <img className="h-96" src={Header_foto} alt="" />
         </main>
-        <footer className="yellow flex justify-between py-5 px-10 mt-16 scroll">
+        <footer className="yellow animation flex justify-between py-5 px-10 mt-16 scroll">
         <img src={HM} alt="" />
         <img src={OBEY} alt="" />
         <img src={Shopify} alt="" />
@@ -106,7 +116,17 @@ function App() {
            </div>
       </main>
 
-
+      <main className="min-h-screen flex justify-around header_main m-5 rounded-3xl mb-0">
+      <div className="flex flex-col mt-auto mb-auto leading-none">
+        <div className="font-bold text-5xl">DOWNLOAD APP &</div><br />
+        <div className="font-bold text-5xl mb-5">GET THE VOUCHER!</div>
+        <div className="flex gap-x-5">
+          <img className="h-10 cursor-pointer"src={Apple} alt="" />
+          <img className="h-10 cursor-pointer"src={Google} alt="" />
+        </div>
+      </div>
+      <img className="max-h-screen" src={Phone} alt="" />
+      </main>
     </div>
   );
 }

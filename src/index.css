@@ -26,6 +26,10 @@
         left:0;
     }
 }
+.animation {
+    animation: anim 10s linear infinite;
+    margin-left: 0%;
+}
 .foto{
     height: 500px;
 }
@@ -34,4 +38,17 @@
 }
 .asd{
     margin: 0 auto;
+}
+@media(max-width: 750px){
+    @keyframes anim{
+        0% {
+            margin-left: 0%;
+        }
+        50% {
+            margin-left: -45%;
+        }
+        100% {
+            margin-left: 0%;
+        }
+    }
 }
