@@ -15,15 +15,31 @@ import Two from "./img/Two.png"
 import Phone from "./img/Phone.png"
 import Apple from "./img/Apple.png"
 import Google from "./img/Google.png"
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { Modal } from "./components/Modal"
+import axios from "./components/Axios"
+import { useProducts } from './hooks/products';
+import { Product } from "./components/Product"
 
 function App() {
   const [signup,setSignup]=useState(false)
+  const [login,setLogin]=useState(false)
+
+useEffect(()=>{
+  axios.get("/posts")
+},[])
+const {products,addProduct} = useProducts()
+
+
   return (
     <div className="App">
-      {signup&&<Modal title="SIGN UP">
-
+      {signup&&<Modal title="SIGN UP" setSignup={setSignup}>
+      <form action="" className="flex flex-col gap-y-1">
+      <input type="text" placeholder="Enter email" />
+      <input type="password" placeholder="Enter password" />
+      <button className="bg-blue-600 px-2 py-1 rounded hover:bg-blue-500 w-16 ">Login</button>
+      </form>
+      <button className="bg-red-600 px-2 py-1 rounded hover:bg-red-700 w-16 mt-5" onClick={()=>{setSignup(false)}}>Close</button>
       </Modal>}
       <header className="min-h-screen">
         <nav className="flex justify-between p-2">
@@ -33,8 +49,14 @@ function App() {
           <div className="">FASHION</div>
           <div className="">FAVOURITE</div>
           <div className="">LIFESTYLE</div>
-          <button className="bg-black px-2 py-1 rounded text-white max-h-8" onClick={()=>setSignup(true)}>SIGN UP</button>
+          {login ? (
+        <button className="bg-black px-2 py-1 rounded text-white max-h-8">MY PROFILE</button>
+        ) : (
+        <button className="bg-black px-2 py-1 rounded text-white max-h-8" onClick={()=>setSignup(true)}>SIGN UP</button>
+      )}
           </div>
+          
+
         </nav>
         <main className="header_main flex m-5 rounded-3xl justify-between p-3 pb-0 pl-10 pr-40">
           <div className="text-6xl">
@@ -116,7 +138,7 @@ function App() {
            </div>
       </main>
 
-      <main className="min-h-screen flex justify-around header_main m-5 rounded-3xl mb-0">
+      <main className="min-h-screen flex justify-around header_main m-5 rounded-3xl mb-0 flex-wrap">
       <div className="flex flex-col mt-auto mb-auto leading-none">
         <div className="font-bold text-5xl">DOWNLOAD APP &</div><br />
         <div className="font-bold text-5xl mb-5">GET THE VOUCHER!</div>
@@ -127,6 +149,12 @@ function App() {
       </div>
       <img className="max-h-screen" src={Phone} alt="" />
       </main>
+
+
+      {products.map(product=><Product product={product} key={product.id}/>)}
+
+
+
     </div>
   );
 }
