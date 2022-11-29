@@ -15,7 +15,7 @@ import Two from "./img/Two.png"
 import Phone from "./img/Phone.png"
 import Apple from "./img/Apple.png"
 import Google from "./img/Google.png"
-import { useState,useEffect } from "react"
+import { useState,useEffect, Children } from "react"
 import { Modal } from "./components/Modal"
 import axios from "./components/Axios"
 import { useProducts } from './hooks/products';
@@ -23,13 +23,12 @@ import { Product } from "./components/Product"
 
 function App() {
   const [signup,setSignup]=useState(false)
-  const [login,setLogin]=useState(false)
+  const [login,setLogin]=useState(true)
 
 useEffect(()=>{
   axios.get("/posts")
 },[])
 const {products,addProduct} = useProducts()
-
 
   return (
     <div className="App">
@@ -44,7 +43,7 @@ const {products,addProduct} = useProducts()
       <header className="min-h-screen">
         <nav className="flex justify-between p-2">
           <div className=""><img src={Logo} alt="" /></div>
-        <div className="flex space-x-3 cursor-pointer">          
+        <div className="flex space-x-3 cursor-pointer navigation">          
           <div className="">CATALOG</div>
           <div className="">FASHION</div>
           <div className="">FAVOURITE</div>
@@ -55,7 +54,11 @@ const {products,addProduct} = useProducts()
         <button className="bg-black px-2 py-1 rounded text-white max-h-8" onClick={()=>setSignup(true)}>SIGN UP</button>
       )}
           </div>
-          
+          <div className="display mt-5">
+            <div className="w-6 h-1 bg-gray-700 rounded mb-1 "></div>
+            <div className="w-6 h-1 bg-gray-700 rounded mb-1 second"></div>
+            <div className="w-6 h-1 bg-gray-700 rounded mb-1 third"></div>
+          </div>
 
         </nav>
         <main className="header_main flex m-5 rounded-3xl justify-between p-3 pb-0 pl-10 pr-40">
@@ -64,10 +67,10 @@ const {products,addProduct} = useProducts()
           <div className="font-bold">EXPLORE</div>
           <div className="font-bold white yellow mb-1 w-64 mt-2">UNIQUE</div>
           <div className="font-bold mb-1">CLOTHES</div>
-          <div className="text-xl mb-2">Live for Influential and Innovative fashion!</div>
+          <div className="text-xl mb-2 title">Live for Influential and Innovative fashion!</div>
           <div className="text-xl bg-black px-2 py-1 text-white text-center w-32 rounded cursor-pointer">Shop Now</div>
           </div>
-          <img className="h-96" src={Header_foto} alt="" />
+          <img className="h-96 image" src={Header_foto} alt="" />
         </main>
         <footer className="yellow animation flex justify-between py-5 px-10 mt-16 scroll">
         <img src={HM} alt="" />

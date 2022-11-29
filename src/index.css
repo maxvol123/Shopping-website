@@ -39,19 +39,6 @@
 .asd{
     margin: 0 auto;
 }
-@media(max-width: 750px){
-    @keyframes anim{
-        0% {
-            margin-left: 0%;
-        }
-        50% {
-            margin-left: -45%;
-        }
-        100% {
-            margin-left: 0%;
-        }
-    }
-}
 .shape{
     position: absolute;
     top: 0;
@@ -64,4 +51,76 @@
     border: 5px solid #000e5e;
 
     transform: rotate(calc(270deg-(10deg*var(--i))));
+}
+.title{
+    width: 35ch;
+    overflow: hidden;
+    color: black;
+    white-space: nowrap;
+    border-right: 4px solid orange;
+    animation: cursor 0.75s step-end infinite, print 3s steps(38);
+}
+@keyframes cursor{
+    0%{
+        border-color:orange;
+    }
+    50%{
+        border-color:transparent;
+    }
+    100%{
+        border-color:orange;
+    }
+}
+@keyframes print{
+    0%{
+        width: 0ch;
+    }
+    100%{
+        width: 38ch;
+    }
+}
+.display{
+    display: none;
+}
+@media screen and (max-width: 860px) {
+    .image{
+        display: none;
+    }
+  }
+  @media screen and (max-width: 710px) {
+    .image{
+        display: none;
+    }
+    .navigation{
+        display: none;
+    }
+    .display{
+        display: block;
+    }
+  }
+  .first{
+    animation: burger_first 1s 1;
+    margin-bottom: -3px;
+  }
+  .second{
+    display: none;
+  }
+  @keyframes burger_first{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(45deg);
+    }
+}
+.third{
+    animation: burger_second 1s 1;
+}
+@keyframes burger_second{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-45deg);
+    }
 }
