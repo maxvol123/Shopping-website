@@ -98,23 +98,29 @@
         display: block;
     }
   }
+
+  /* burger animation */
   .first{
     animation: burger_first 1s 1;
-    margin-bottom: -3px;
+    margin-bottom: -4px;
+    transform: rotate(45deg);
   }
   .second{
     display: none;
   }
   @keyframes burger_first{
     0%{
+        margin-bottom: 0px;
         transform: rotate(0deg);
     }
     100%{
+        margin-bottom: -4px;
         transform: rotate(45deg);
     }
 }
 .third{
     animation: burger_second 1s 1;
+    transform: rotate(-45deg);
 }
 @keyframes burger_second{
     0%{
@@ -122,5 +128,29 @@
     }
     100%{
         transform: rotate(-45deg);
+    }
+}
+  /* burger return animation */
+.one{
+    animation: burger_firstB 1s 1;
+}
+@keyframes burger_firstB{
+    0%{
+        transform: rotate(45deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.three{
+    animation: burger_secondB 1s 1;
+    transform: rotate(0deg);
+}
+@keyframes burger_secondB{
+    0%{
+        transform: rotate(-45deg);
+    }
+    100%{
+        transform: rotate(0deg);
     }
 }
