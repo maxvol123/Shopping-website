@@ -24,7 +24,7 @@ import { Product } from "./components/Product"
 function App() {
   const [signup,setSignup]=useState(false)
   const [login,setLogin]=useState(false)
-  const [burger,setBurger]=useState(true)
+  const [burger,setBurger]=useState(false)
 
 useEffect(()=>{
   axios.get("/posts")
@@ -189,8 +189,9 @@ const {products,addProduct} = useProducts()
       <img className="max-h-screen" src={Phone} alt="" />
       </main>
 
-
+      <div className="flex flex-wrap justify-center">
       {products.map(product=><Product product={product} key={product.id}/>)}
+      </div>
 
 
 
