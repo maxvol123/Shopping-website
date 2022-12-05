@@ -1,6 +1,7 @@
 export interface IProduct{
-    id?:number
+    _id:any
     title:string
     text:string
+    price:number
     foto_url?:string
 }
