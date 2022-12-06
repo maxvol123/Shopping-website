@@ -3,5 +3,6 @@ export interface IProduct{
     title:string
     text:string
     price:number
+    rating:number
     foto_url?:string
 }
