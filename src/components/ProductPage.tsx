@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useProducts } from '../hooks/products';
-import { Product } from './Product';
 export function ProductPage() {
     const {products,addProduct} = useProducts()
     let id = document.location.pathname.slice(9)
@@ -22,9 +21,9 @@ export function ProductPage() {
     console.log(bstars);
     
     return(
-        <div className='flex flex-col items-center pb-10'>
-            <div className="flex ">
-            <img src={foto} alt="" className='w-96 mr-5'/>
+        <div className='flex flex-col items-center pb-10 max-h-[600px] flex-wrap'>
+            <div className="flex flex-wrap justify-center">
+            <img src={foto} alt="" className='h-[600px] mr-5'/>
             <div className="">
             <div className="text-4xl">{title}</div>
             
@@ -41,6 +40,9 @@ export function ProductPage() {
             <div className="">{text}</div>
             <div className="">
                 <div className="font-bold">Also Buy</div>
+                <div className="flex overflow-hidden flex-wrap">
+                {products.map(product=><div className='mr-5 max-w-[200px] hover:underline'><img className='h-52' src={product.foto_url} alt="" /> <a href={"/product/"+product._id} className="w-[10px]">{product.title}</a></div>)}
+                </div>
             </div>
             </div>
             </div>

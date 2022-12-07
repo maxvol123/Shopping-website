@@ -34,7 +34,9 @@
     height: 500px;
 }
 .scroll{
-    overflow-x: auto;
+    overflow-x: scroll;
+    white-space: nowrap;
+    display: contents;
 }
 .asd{
     margin: 0 auto;
