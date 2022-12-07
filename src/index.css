@@ -36,7 +36,6 @@
 .scroll{
     overflow-x: scroll;
     white-space: nowrap;
-    display: contents;
 }
 .asd{
     margin: 0 auto;

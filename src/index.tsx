@@ -8,6 +8,7 @@ import {   BrowserRouter as Router,
   Navigate } from "react-router-dom";
 import { ProductPage } from "./components/ProductPage";
 import { Nav } from './components/Nav';
+import { Cart } from './components/Cart';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );  
@@ -17,6 +18,7 @@ root.render(
   <Router>
   <Routes>
       <Route path="/" element={<App/>} />
+      <Route path="/cart" element={<Cart/>} />
       <Route path={"/product/:id"} element={<ProductPage/>} />
   </Routes>
     </Router>

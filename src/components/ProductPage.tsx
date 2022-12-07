@@ -11,6 +11,28 @@ export function ProductPage() {
     const [amount, setAmount] = useState(1)
     let ystars=""
     let bstars=""
+    function AddToCart() {
+        // if (localStorage.getItem("Cart")==null) {
+        //     let loc = JSON.parse(localStorage.getItem("Cart")|| '{}')
+        //     localStorage.setItem("Cart",JSON.stringify([]));
+        //     console.log(loc);
+        //     let info = JSON.parse(localStorage.getItem("Cart")|| '{}')
+        //     info.push(loc)
+        //     console.log(info);
+        //     localStorage.setItem("Cart",JSON.stringify(info));   
+        // }
+        // let numb
+        // if (loc[1]===undefined) {
+        //     numb = amount
+        // }else{
+        //     numb = loc[1]+amount
+        // }
+        // let arr2 = []
+        // arr2.push({id:id,title:title,text:text,price:price,foto:foto,rating:rating},numb)
+        // localStorage.setItem("Cart",JSON.stringify(arr2));
+        // console.log(arr2);
+        
+    }
     for (let index = 0; index < rating!; index++) {
         ystars+="★"
     }
@@ -36,7 +58,7 @@ export function ProductPage() {
             <div className="flex justify-between w-[100px] mb-2">
             <button className='' onClick={()=>{setAmount(amount+1)}}>+</button><div className="">{amount}</div><button onClick={()=>{if(amount<=1){}else{setAmount(amount-1)}}}>-</button>
             </div>
-            <button className='bg-green-500 py-1 px-2 rounded'>Add to cart</button>
+            <button className='bg-green-500 py-1 px-2 rounded' onClick={()=>AddToCart()}>Add to cart</button>
             <div className="">{text}</div>
             <div className="">
                 <div className="font-bold">Also Buy</div>
