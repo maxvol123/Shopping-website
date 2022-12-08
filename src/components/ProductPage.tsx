@@ -12,26 +12,20 @@ export function ProductPage() {
     let ystars=""
     let bstars=""
     function AddToCart() {
-        // if (localStorage.getItem("Cart")==null) {
-        //     let loc = JSON.parse(localStorage.getItem("Cart")|| '{}')
-        //     localStorage.setItem("Cart",JSON.stringify([]));
-        //     console.log(loc);
-        //     let info = JSON.parse(localStorage.getItem("Cart")|| '{}')
-        //     info.push(loc)
-        //     console.log(info);
-        //     localStorage.setItem("Cart",JSON.stringify(info));   
-        // }
-        // let numb
-        // if (loc[1]===undefined) {
-        //     numb = amount
-        // }else{
-        //     numb = loc[1]+amount
-        // }
-        // let arr2 = []
-        // arr2.push({id:id,title:title,text:text,price:price,foto:foto,rating:rating},numb)
-        // localStorage.setItem("Cart",JSON.stringify(arr2));
-        // console.log(arr2);
-        
+        if (localStorage.getItem("Cart")==null) {
+            let numb
+            localStorage.setItem("Cart",JSON.stringify([]));
+            let info = JSON.parse(localStorage.getItem("Cart")|| '{}')
+            info.push({id:id,title:title,text:text,price:price,foto:foto,rating:rating},amount)
+            localStorage.setItem("Cart",JSON.stringify(info));
+            console.log(info);
+
+        }else{
+        let numb
+        let info = JSON.parse(localStorage.getItem("Cart")|| '{}')
+        info.push({id:id,title:title,text:text,price:price,foto:foto,rating:rating},amount)
+        localStorage.setItem("Cart",JSON.stringify(info));
+        }
     }
     for (let index = 0; index < rating!; index++) {
         ystars+="★"
