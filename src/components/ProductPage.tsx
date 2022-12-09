@@ -13,7 +13,6 @@ export function ProductPage() {
     let bstars=""
     function AddToCart() {
         if (localStorage.getItem("Cart")==null) {
-            let numb
             localStorage.setItem("Cart",JSON.stringify([]));
             let info = JSON.parse(localStorage.getItem("Cart")|| '{}')
             info.push({id:id,title:title,text:text,price:price,foto:foto,rating:rating},amount)
@@ -21,8 +20,16 @@ export function ProductPage() {
             console.log(info);
 
         }else{
-        let numb
         let info = JSON.parse(localStorage.getItem("Cart")|| '{}')
+                for (let index = 0; index < info.length; index++) {
+            if (id===info[index].id) {
+                console.log(index);
+                info[index+1]=info[index+1]+amount
+                localStorage.setItem("Cart",JSON.stringify(info));
+                return
+            }
+            
+        }
         info.push({id:id,title:title,text:text,price:price,foto:foto,rating:rating},amount)
         localStorage.setItem("Cart",JSON.stringify(info));
         }
