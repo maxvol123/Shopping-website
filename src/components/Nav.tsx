@@ -64,7 +64,7 @@ export function Nav() {
         ) : (
         <button className="bg-black px-2 py-1 rounded text-white max-h-8" onClick={()=>setSignup(true)}>SIGN UP</button>
       )}
-            <img src={Cart} alt="" className="h-7" />
+            <a href="/cart"><img src={Cart} alt="" className="h-7" /></a>
           </div>
           <div className="display mt-5 z-40" onClick={()=>{a();setSignup(false)}}>
             <div className="w-6 h-1 bg-gray-700 rounded mb-1 one"></div>

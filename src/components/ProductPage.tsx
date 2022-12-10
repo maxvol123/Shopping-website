@@ -15,7 +15,7 @@ export function ProductPage() {
         if (localStorage.getItem("Cart")==null) {
             localStorage.setItem("Cart",JSON.stringify([]));
             let info = JSON.parse(localStorage.getItem("Cart")|| '{}')
-            info.push({id:id,title:title,text:text,price:price,foto:foto,rating:rating},amount)
+            info.push({id:id,title:title,text:text,price:price,foto:foto,rating:rating,amount:amount})
             localStorage.setItem("Cart",JSON.stringify(info));
             console.log(info);
 
@@ -24,13 +24,13 @@ export function ProductPage() {
                 for (let index = 0; index < info.length; index++) {
             if (id===info[index].id) {
                 console.log(index);
-                info[index+1]=info[index+1]+amount
+                info[index].amount=info[index].amount+amount
                 localStorage.setItem("Cart",JSON.stringify(info));
                 return
             }
             
         }
-        info.push({id:id,title:title,text:text,price:price,foto:foto,rating:rating},amount)
+        info.push({id:id,title:title,text:text,price:price,foto:foto,rating:rating,amount:amount})
         localStorage.setItem("Cart",JSON.stringify(info));
         }
     }
