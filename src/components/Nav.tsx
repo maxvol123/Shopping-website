@@ -2,6 +2,7 @@ import Logo from "../img/Logo.png"
 import { Modal } from "./Modal"
 import { useState,useEffect, Children } from "react"
 import Cart from "../img/Cart.png"
+import axios from "axios"
 export function Nav() {
     function a() {
         if(document.querySelector(".one")?.classList.contains("one")){
@@ -25,15 +26,41 @@ export function Nav() {
     const [signup,setSignup]=useState(false)
     const [login,setLogin]=useState(false)
     const [burger,setBurger]=useState(false)
+    const [email,setEmail]=useState("")
+    const [password,setPassword]=useState("")
+    const notDefoult = async(event: React.FormEvent)=>{
+      event.preventDefault()
+  }
+  const changeEmail= (event: React.ChangeEvent<HTMLInputElement>)=>{
+    setEmail(event.target.value)
+    }
+    const changePassword= (event: React.ChangeEvent<HTMLInputElement>)=>{
+      setPassword(event.target.value)
+      }
+      useEffect(()=>{
+      if (localStorage.getItem("Token")) {
+        setLogin(true)
+      }  
+      })
+
+    function Login() {
+      return axios.post("http://localhost:777/login",{
+        "email":email,
+        "password":password
+      }).then((res)=>{localStorage.setItem("Token",res.data.token)
+      setSignup(false)
+      setLogin(true)
+      })
+    }
     return(
         <>
         {signup&&<Modal title="SIGN UP" setSignup={setSignup}>
-      <form action="" className="flex flex-col gap-y-1">
-      <input type="text" placeholder="Enter email" />
-      <input type="password" placeholder="Enter password" />
-      <button className="bg-blue-600 px-2 py-1 rounded hover:bg-blue-500 w-16 ">Login</button>
+      <form onSubmit={notDefoult} action="" className="flex flex-col gap-y-1">
+      <input type="text" placeholder="Enter email" onChange={changeEmail} value={email}  />
+      <input type="password" placeholder="Enter password" onChange={changePassword} value={password} />
+      <button className="bg-blue-600 px-2 py-1 rounded hover:bg-blue-500 w-16 " onClick={()=>Login()}>Login</button>
       </form>
-      <button className="bg-red-600 px-2 py-1 rounded hover:bg-red-700 w-16 mt-5" onClick={()=>{setSignup(false)}}>Close</button>
+      <button className="bg-red-600 px-2 py-1 rounded hover:bg-red-700 w-16 mt-5" onClick={()=>{setSignup(false);}}>Close</button>
       </Modal>}
 
       {burger&&<Modal title="Menu" setSignup={setSignup}>
