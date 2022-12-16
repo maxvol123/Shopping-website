@@ -94,7 +94,7 @@ const {products,addProduct} = useProducts()
         <h1 className="font-bold text-4xl ml-5">Young’s Favourite</h1>
         <div className="flex mx-5 mt-3 justify-around flex-wrap">
           <div className="mb-7">
-            <img className="foto" src={Two} alt="" />
+            <img className="foto h-" src={Two} alt="" />
             <div className="flex flex-col">
             <div className="">Trending on instagram</div>
             <div className="">Explore Now!</div>

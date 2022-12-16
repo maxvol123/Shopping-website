@@ -37,21 +37,35 @@ export function Nav() {
     const changePassword= (event: React.ChangeEvent<HTMLInputElement>)=>{
       setPassword(event.target.value)
       }
-      useEffect(()=>{
-      if (localStorage.getItem("Token")) {
-        setLogin(true)
-      }  
-      })
-
     function Login() {
       return axios.post("http://localhost:777/login",{
         "email":email,
         "password":password
       }).then((res)=>{localStorage.setItem("Token",res.data.token)
       setSignup(false)
-      setLogin(true)
+      me()
       })
-    }
+    } 
+    useEffect(()=>{
+    me() 
+    })
+    function me() {
+      let token = localStorage.getItem("Token") 
+      if (token) {
+      return axios.get("http://localhost:777/me",{
+        headers:{
+          authorization:token!
+        }
+      }).then((res)=>{
+        setLogin(true)
+      }).catch(err => {
+        console.log(1);
+    })
+    }else{
+      setLogin(false)
+    }   
+      }
+      
     return(
         <>
         {signup&&<Modal title="SIGN UP" setSignup={setSignup}>
