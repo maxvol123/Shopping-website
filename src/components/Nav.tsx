@@ -122,10 +122,16 @@ export function Nav() {
           <div className="">FAVOURITE</div>
           <div className="">LIFESTYLE</div>
         </div>
+        <div className=""></div>
         {login ? (
-        <button className="bg-black px-2 py-1 rounded text-white max-h-8"><a href="/me"> MY PROFILE</a></button>
+        <div className="flex"><button className="bg-black px-2 py-1 rounded text-white max-h-8 mr-5"><a href="/me"> MY PROFILE</a></button>
+        <a href="/cart"><img src={Cart} alt="" className="h-7" /></a>
+        </div>
         ) : (
-        <button className="bg-black px-2 py-1 rounded text-white max-h-8" onClick={()=>{setSignup(true); setBurger(false); a()}}>SIGN UP</button>
+        <div className="flex">
+        <button className="bg-black px-2 py-1 rounded text-white max-h-8 mr-5" onClick={()=>{setSignup(true); setBurger(false); a()}}>SIGN UP</button>
+        <a href="/cart"><img src={Cart} alt="" className="h-7" /></a>
+        </div>  
       )}
       </Modal>}
 

@@ -26,7 +26,7 @@ useEffect(()=>{
 const {products} = useProducts()
   return (
     <div className="App">
-      <header className="min-h-screen">
+      <header className="">
         <main className="header_main flex m-5 rounded-3xl justify-between p-3 pb-0 pl-10 pr-40">
           <div className="text-6xl">
           <div className="font-bold white bg-white mb-1 w-44">LET’S</div>
@@ -49,7 +49,7 @@ const {products} = useProducts()
       </header>
       <main className="min-h-screen">
         <h1 className="font-bold text-4xl ml-5">NEW ARRIVALS</h1>
-        <div className="flex mx-5 mt-3 justify-between flex-wrap">
+        <div className="flex mx-5 mt-3 justify-between flex-wrap arrivals">
           <div className="mb-7">
             <img className="foto" src={Hoodies} alt="" />
             <div className="flex flex-col">
@@ -89,20 +89,24 @@ const {products} = useProducts()
         <h1 className="font-bold text-4xl ml-5">Young’s Favourite</h1>
         <div className="flex mx-5 mt-3 justify-around flex-wrap">
           <div className="mb-7">
-            <img className="foto h-" src={Two} alt="" />
+            <img className=" w-[100%]" src={Two} alt="" />
+            <div className="flex justify-between">
             <div className="flex flex-col">
             <div className="">Trending on instagram</div>
             <div className="">Explore Now!</div>
             </div>
-            <img className="arrow h-4 ml-80 -mt-9" src={Arrow} alt="" />
+            <img className="arrow h-5 mr-3 mt-1" src={Arrow} alt="" />
+            </div>
            </div>
            <div className="mb-7">
-            <img className="foto" src={One} alt="" />
+            <img className="w-[100%]" src={One} alt="" />
+            <div className="flex justify-between">
             <div className="flex flex-col">
             <div className="">All Under $40</div>
             <div className="">Explore Now!</div>
             </div>
-            <img className="arrow h-4 ml-80 -mt-9" src={Arrow} alt="" />
+            <img className="arrow h-5 mr-3 mt-1" src={Arrow} alt="" />
+            </div>
            </div>
            </div>
       </main>

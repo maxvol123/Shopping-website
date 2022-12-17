@@ -30,9 +30,6 @@
     animation: anim 10s linear infinite;
     margin-left: 0%;
 }
-.foto{
-    height: 500px;
-}
 .scroll{
     overflow-x: scroll;
     white-space: nowrap;
@@ -97,6 +94,12 @@
     }
     .display{
         display: block;
+    }
+    .arrivals{
+        justify-content: center;
+    }
+    .title{
+        font-size: 15px;
     }
   }
 
