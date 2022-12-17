@@ -1,6 +1,6 @@
 import Logo from "../img/Logo.png"
 import { Modal } from "./Modal"
-import { useState,useEffect, Children } from "react"
+import { useState,useEffect} from "react"
 import Cart from "../img/Cart.png"
 import axios from "axios"
 export function Nav() {
@@ -123,7 +123,7 @@ export function Nav() {
           <div className="">LIFESTYLE</div>
         </div>
         {login ? (
-        <button className="bg-black px-2 py-1 rounded text-white max-h-8">MY PROFILE</button>
+        <button className="bg-black px-2 py-1 rounded text-white max-h-8"><a href="/me"> MY PROFILE</a></button>
         ) : (
         <button className="bg-black px-2 py-1 rounded text-white max-h-8" onClick={()=>{setSignup(true); setBurger(false); a()}}>SIGN UP</button>
       )}
@@ -139,7 +139,7 @@ export function Nav() {
           <div className="">FAVOURITE</div>
           <div className="">LIFESTYLE</div>
           {login ? (
-        <button className="bg-black px-2 py-1 rounded text-white max-h-8">MY PROFILE</button>
+        <button className="bg-black px-2 py-1 rounded text-white max-h-8"><a href="/me"> MY PROFILE</a></button>
         ) : (
         <button className="bg-black px-2 py-1 rounded text-white max-h-8" onClick={()=>setSignup(true)}>SIGN UP</button>
       )}

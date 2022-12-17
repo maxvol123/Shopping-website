@@ -14,21 +14,16 @@ import Two from "./img/Two.png"
 import Phone from "./img/Phone.png"
 import Apple from "./img/Apple.png"
 import Google from "./img/Google.png"
-import { useState,useEffect, Children } from "react"
-import { Modal } from "./components/Modal"
+import {useEffect} from "react"
 import axios from "./components/Axios"
 import { useProducts } from './hooks/products';
 import { Product } from "./components/Product"
 function App() {
-  const [signup,setSignup]=useState(false)
-  const [login,setLogin]=useState(false)
-  const [burger,setBurger]=useState(false)
 useEffect(()=>{
   axios.get("/posts")
 },[])
 
-const {products,addProduct} = useProducts()
-
+const {products} = useProducts()
   return (
     <div className="App">
       <header className="min-h-screen">
