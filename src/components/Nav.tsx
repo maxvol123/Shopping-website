@@ -24,10 +24,14 @@ export function Nav() {
       }
       }
     const [signup,setSignup]=useState(false)
+    const [register,setRegister]=useState(false)
     const [login,setLogin]=useState(false)
     const [burger,setBurger]=useState(false)
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
+    const [Rname,setRname]=useState("")
+    const [Remail,setREmail]=useState("")
+    const [Rpassword,setRPassword]=useState("")
     const notDefoult = async(event: React.FormEvent)=>{
       event.preventDefault()
   }
@@ -37,12 +41,31 @@ export function Nav() {
     const changePassword= (event: React.ChangeEvent<HTMLInputElement>)=>{
       setPassword(event.target.value)
       }
+      const changeREmail= (event: React.ChangeEvent<HTMLInputElement>)=>{
+        setREmail(event.target.value)
+        }
+        const changeRPassword= (event: React.ChangeEvent<HTMLInputElement>)=>{
+          setRPassword(event.target.value)
+          }
+          const changeRName= (event: React.ChangeEvent<HTMLInputElement>)=>{
+            setRname(event.target.value)
+            }
     function Login() {
       return axios.post("http://localhost:777/login",{
         "email":email,
         "password":password
       }).then((res)=>{localStorage.setItem("Token",res.data.token)
       setSignup(false)
+      me()
+      })
+    } 
+    function Registration() {
+      return axios.post("http://localhost:777/register",{
+        "fullname":Rname,
+        "email":Remail,
+        "password":Rpassword,
+      }).then((res)=>{localStorage.setItem("Token",res.data.token)
+      setRegister(false)
       me()
       })
     } 
@@ -63,20 +86,35 @@ export function Nav() {
     })
     }else{
       setLogin(false)
+      localStorage.removeItem("Token")
     }   
       }
       
     return(
         <>
-        {signup&&<Modal title="SIGN UP" setSignup={setSignup}>
+        {signup&&<Modal title="LOGIN" setSignup={setSignup}>
       <form onSubmit={notDefoult} action="" className="flex flex-col gap-y-1">
       <input type="text" placeholder="Enter email" onChange={changeEmail} value={email}  />
       <input type="password" placeholder="Enter password" onChange={changePassword} value={password} />
       <button className="bg-blue-600 px-2 py-1 rounded hover:bg-blue-500 w-16 " onClick={()=>Login()}>Login</button>
       </form>
+      <div className="flex justify-between">
+      <button className="bg-blue-600 px-2 py-1 rounded hover:bg-blue-500 w-16 mt-5" onClick={()=>{setRegister(true);setSignup(false)}}>SignUp</button>
       <button className="bg-red-600 px-2 py-1 rounded hover:bg-red-700 w-16 mt-5" onClick={()=>{setSignup(false);}}>Close</button>
+      </div>
       </Modal>}
-
+      {register&&<Modal title="SIGN UP" setSignup={setSignup}>
+      <form onSubmit={notDefoult} action="" className="flex flex-col gap-y-1">
+      <input type="text" placeholder="Enter full name" onChange={changeRName} value={Rname}  />
+      <input type="text" placeholder="Enter email" onChange={changeREmail} value={Remail}  />
+      <input type="password" placeholder="Enter password" onChange={changeRPassword} value={Rpassword} />
+      <button className="bg-blue-600 px-2 py-1 rounded hover:bg-blue-500 w-16 " onClick={()=>Registration()}>Register</button>
+      </form>
+      <div className="flex justify-between">
+      <button className="bg-blue-600 px-2 py-1 rounded hover:bg-blue-500 w-16 mt-5" onClick={()=>{setRegister(true);setSignup(false)}}>SignUp</button>
+      <button className="bg-red-600 px-2 py-1 rounded hover:bg-red-700 w-16 mt-5" onClick={()=>{setSignup(false);}}>Close</button>
+      </div>
+      </Modal>}
       {burger&&<Modal title="Menu" setSignup={setSignup}>
         <div className="flex flex-col text-center mt-5">
           <a href="/" className="">HOME</a>
