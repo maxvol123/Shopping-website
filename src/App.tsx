@@ -52,27 +52,30 @@ const {products} = useProducts()
         <div className="flex mx-5 mt-3 justify-between flex-wrap arrivals">
           <div className="mb-7">
             <img className="foto" src={Hoodies} alt="" />
+            <div className="flex justify-between">
             <div className="flex flex-col">
             <div className="">Hoodies & Sweetshirt</div>
             <div className="">Explore Now!</div>
             </div>
-            <img className="arrow h-4 ml-80 -mt-9" src={Arrow} alt="" />
+            <img className="arrow h-4 mt-4 mr-3" src={Arrow} alt="" /></div>
            </div>
            <div className="mb-7">
             <img className="foto" src={Coats} alt="" />
+            <div className="flex justify-between">
             <div className="flex flex-col">
             <div className="">Coats & Parkas</div>
             <div className="">Explore Now!</div>
             </div>
-            <img className="arrow h-4 ml-80 -mt-9" src={Arrow} alt="" />
+            <img className="arrow h-4 mt-4 mr-3" src={Arrow} alt="" /></div>
            </div>
            <div className="mb-7">
             <img className="foto" src={Tees} alt="" />
+            <div className="flex justify-between">
             <div className="flex flex-col">
             <div className="">Tees & T-Shirt</div>
             <div className="">Explore Now!</div>
             </div>
-            <img className="arrow h-4 ml-80 -mt-9" src={Arrow} alt="" />
+            <img className="arrow h-4 mt-4 mr-3" src={Arrow} alt="" /></div>
            </div>
         </div>
       </main>

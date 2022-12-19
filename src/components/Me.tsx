@@ -23,6 +23,7 @@ export function Me() {
         <>
         <div className="font-semibold text-3xl">Hello {name} !</div>
         <div className="">Your email {email}</div>
+        <button className="bg-red-600 px-2 py-1 rounded hover:bg-red-700 w-16 mt-5" onClick={()=>localStorage.removeItem("Token")}><a href="/">LogOut</a></button>
         </>
     )
 }
