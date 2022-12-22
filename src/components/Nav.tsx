@@ -4,6 +4,72 @@ import { useState,useEffect} from "react"
 import Cart from "../img/Cart.png"
 import axios from "axios"
 export function Nav() {
+  const [total,setTotal]=useState(0)
+  const [info,setInfo]=useState(JSON.parse(localStorage.getItem("Cart")|| "{}"))
+  const [show,setShow]=useState(true)
+  useEffect(()=>{ 
+      let q = 0
+  for (let i = 0; i < info.length; i++) {
+      console.log((info[i].price*info[i].amount)+total);    
+      q=info[i].price*info[i].amount+q
+  }
+  setTotal(q)
+  if (localStorage.getItem("Cart")===null) {
+      setShow(false)
+  }
+}, [])
+function Set(id:any) {
+  let info = JSON.parse(localStorage.getItem("Cart")|| '{}')
+  let index = info.findIndex((a:any) => a.id == id)
+  info[index].amount=info[index].amount+1
+  localStorage.setItem("Cart",JSON.stringify(info));
+  info = JSON.parse(localStorage.getItem("Cart")|| '{}')
+  let q = 0
+  for (let i = 0; i < info.length; i++) {
+      q=info[i].price*info[i].amount+q
+  }
+  setInfo(info)
+  setTotal(q)
+}
+console.log(show);
+function Minus(id:any) {
+  let info = JSON.parse(localStorage.getItem("Cart")|| '{}')
+  let index = info.findIndex((a:any) => a.id == id)
+  if (info[index].amount<=1) {
+      
+  }else{
+  info[index].amount=info[index].amount-1
+  localStorage.setItem("Cart",JSON.stringify(info));
+  info = JSON.parse(localStorage.getItem("Cart")|| '{}')
+  let q = 0
+  for (let i = 0; i < info.length; i++) {
+      q=info[i].price*info[i].amount+q
+  }
+  setInfo(info)
+  setTotal(q)}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function a() {
         if(document.querySelector(".one")?.classList.contains("one")){
         document.querySelector(".one")?.classList.add("first")
@@ -32,6 +98,7 @@ export function Nav() {
     const [Rname,setRname]=useState("")
     const [Remail,setREmail]=useState("")
     const [Rpassword,setRPassword]=useState("")
+    const [cart,setCart]=useState(false)
     const notDefoult = async(event: React.FormEvent)=>{
       event.preventDefault()
   }
@@ -139,7 +206,7 @@ export function Nav() {
       
         <nav className="flex justify-between p-2">
           <div className=""><img src={Logo} alt="" /></div>
-        <div className="flex space-x-3 cursor-pointer navigation">          
+        <div className="flex space-x-3 cursor-pointer navigation mr-5">          
         <a href="/" className="">HOME</a>
           <div className="">FASHION</div>
           <div className="">FAVOURITE</div>
@@ -149,7 +216,10 @@ export function Nav() {
         ) : (
         <button className="bg-black px-2 py-1 rounded text-white max-h-8" onClick={()=>setSignup(true)}>SIGN UP</button>
       )}
-            <a href="/cart"><img src={Cart} alt="" className="h-7" /></a>
+            <a href="/cart"><img src={Cart} alt="" className="h-7" onMouseEnter={()=>setCart(true)} onMouseLeave={()=>setCart(false)}/></a>
+            <div className="flex p-3 bg-white absolute mt-2 right-0 flex-wrap">
+            {cart&&info.map((product: any) => <div onMouseEnter={()=>setCart(true)} onMouseLeave={()=>setCart(false)}  className="max-w-[200px]"><div className='mr-5 max-w-[200px] hover:underline'><a href={"/product/" + product._id} className="w-[10px]"><img className='h-52' src={product.foto} alt="" />{product.title}</a></div><div className="text-green-600 font-bold">{product.price}$</div><div className="flex justify-between w-[100px] mb-2"><button className='' onClick={() => Set(product.id)}>+</button><div className="">{product.amount}</div><button onClick={() => Minus(product.id)}>-</button></div></div>)}            
+            </div>
           </div>
           <div className="display mt-5 z-40" onClick={()=>{a();setSignup(false)}}>
             <div className="w-6 h-1 bg-gray-700 rounded mb-1 one"></div>
