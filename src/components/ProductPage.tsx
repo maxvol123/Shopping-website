@@ -17,13 +17,11 @@ export function ProductPage() {
             let info = JSON.parse(localStorage.getItem("Cart")|| '{}')
             info.push({id:id,title:title,text:text,price:price,foto:foto,rating:rating,amount:amount})
             localStorage.setItem("Cart",JSON.stringify(info));
-            console.log(info);
 
         }else{
         let info = JSON.parse(localStorage.getItem("Cart")|| '{}')
                 for (let index = 0; index < info.length; index++) {
             if (id===info[index].id) {
-                console.log(index);
                 info[index].amount=info[index].amount+amount
                 localStorage.setItem("Cart",JSON.stringify(info));
                 return
@@ -39,10 +37,7 @@ export function ProductPage() {
     }
     for (let index = 5-rating!; index > 0; index--) {
         bstars+="★"
-    }
-    console.log(ystars);
-    console.log(bstars);
-    
+    }    
     return(
         <div className='flex flex-col items-center pb-10 max-h-[600px] flex-wrap'>
             <div className="flex flex-wrap justify-center">
