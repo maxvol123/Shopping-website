@@ -9,6 +9,7 @@ import { ProductPage } from "./components/ProductPage";
 import { Nav } from './components/Nav';
 import { Cart } from './components/Cart';
 import { Me } from './components/Me';
+import { Goods } from './components/Goods';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );  
@@ -19,6 +20,7 @@ root.render(
   <Routes>
       <Route path="/" element={<App/>} />
       <Route path="/cart" element={<Cart/>} />
+      <Route path="/product" element={<Goods/>} />
       <Route path={"/product/:id"} element={<ProductPage/>} />
       <Route path="/me" element={<Me/>} />
   </Routes>

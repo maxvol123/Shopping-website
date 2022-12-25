@@ -34,7 +34,7 @@ const {products} = useProducts()
           <div className="font-bold white yellow mb-1 w-64 mt-2">UNIQUE</div>
           <div className="font-bold mb-1">CLOTHES</div>
           <div className="text-xl mb-2 title">Live for Influential and Innovative fashion!</div>
-          <div className="text-xl bg-black px-2 py-1 text-white text-center w-32 rounded cursor-pointer">Shop Now</div>
+          <div className="text-xl bg-black px-2 py-1 text-white text-center w-32 rounded cursor-pointer"><a href="/product"> Shop Now</a></div>
           </div>
           <img className="h-96 image" src={Header_foto} alt="" />
         </main>

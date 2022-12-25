@@ -46,28 +46,6 @@ function Minus(id:any) {
   setInfo(info)
   setTotal(q)}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     function a() {
         if(document.querySelector(".one")?.classList.contains("one")){
         document.querySelector(".one")?.classList.add("first")
@@ -153,7 +131,6 @@ function Minus(id:any) {
       localStorage.removeItem("Token")
     }   
       }
-      
     return(
         <>
         {signup&&<Modal title="LOGIN" setSignup={setSignup}>
@@ -182,7 +159,7 @@ function Minus(id:any) {
       {burger&&<Modal title="Menu" setSignup={setSignup}>
         <div className="flex flex-col text-center mt-5">
           <a href="/" className="">HOME</a>
-          <div className="">FASHION</div>
+          <a href="/product" className="">SHOP NOW</a>
           <div className="">FAVOURITE</div>
           <div className="">LIFESTYLE</div>
         </div>
@@ -198,14 +175,11 @@ function Minus(id:any) {
         </div>  
       )}
       </Modal>}
-
-
-      
         <nav className="flex justify-between p-2">
           <div className=""><img src={Logo} alt="" /></div>
         <div className="flex space-x-3 cursor-pointer navigation mr-5">          
         <a href="/" className="">HOME</a>
-          <div className="">FASHION</div>
+        <a href="/product" className="">SHOP NOW</a>
           <div className="">FAVOURITE</div>
           <div className="">LIFESTYLE</div>
           {login ? (
@@ -213,8 +187,8 @@ function Minus(id:any) {
         ) : (
         <button className="bg-black px-2 py-1 rounded text-white max-h-8" onClick={()=>setSignup(true)}>SIGN UP</button>
       )}
-            <a href="/cart"><img src={Cart} alt="" className="h-7" onMouseEnter={()=>setCart(true)} onMouseLeave={()=>setCart(false)}/></a>
-            <div className="flex p-3 bg-white absolute mt-2 right-0 flex-wrap">
+            <a href="/cart"><img src={Cart} alt="" className="h-7" onMouseEnter={()=>setCart(true)}/></a>
+            <div className="flex p-3 bg-white absolute mt-7 right-0 flex-wrap">
             {cart&&localStorage.getItem("Cart")&&info.map((product: any) => <div onMouseEnter={()=>setCart(true)} onMouseLeave={()=>setCart(false)}  className="max-w-[200px]"><div className='mr-5 max-w-[200px] hover:underline'><a href={"/product/" + product._id} className="w-[10px]"><img className='h-52' src={product.foto} alt="" />{product.title}</a></div><div className="text-green-600 font-bold">{product.price}$</div><div className="flex justify-between w-[100px] mb-2"><button className='' onClick={() => Set(product.id)}>+</button><div className="">{product.amount}</div><button onClick={() => Minus(product.id)}>-</button></div></div>)}            
             </div>
           </div>
