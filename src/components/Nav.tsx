@@ -94,7 +94,7 @@ function Minus(id:any) {
             setRname(event.target.value)
             }
     function Login() {
-      return axios.post("http://localhost:777/login",{
+      return axios.post("https://backend-bfwe.onrender.com/login",{
         "email":email,
         "password":password
       }).then((res)=>{localStorage.setItem("Token",res.data.token)
@@ -103,7 +103,7 @@ function Minus(id:any) {
       })
     } 
     function Registration() {
-      return axios.post("http://localhost:777/register",{
+      return axios.post("https://backend-bfwe.onrender.com/register",{
         "fullname":Rname,
         "email":Remail,
         "password":Rpassword,
@@ -118,7 +118,7 @@ function Minus(id:any) {
     function me() {
       let token = localStorage.getItem("Token") 
       if (token) {
-      return axios.get("http://localhost:777/me",{
+      return axios.get("https://backend-bfwe.onrender.com/me",{
         headers:{
           authorization:token!
         }

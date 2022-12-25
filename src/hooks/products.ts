@@ -11,7 +11,7 @@ function addProduct(product:IProduct) {
 
 async function fetchProducts() {
   try {
-    const response = await axios.get<IProduct[]>('http://localhost:777/posts') 
+    const response = await axios.get<IProduct[]>('https://backend-bfwe.onrender.com/posts') 
     Setproducts(response.data) 
   } catch (e) {
     const error = e as AxiosError

@@ -9,7 +9,7 @@ export function Me() {
         function me() {
           let token = localStorage.getItem("Token") 
           if (token) {
-          return axios.get("http://localhost:777/me",{
+          return axios.get("https://backend-bfwe.onrender.com",{
             headers:{
               authorization:token!
             }
